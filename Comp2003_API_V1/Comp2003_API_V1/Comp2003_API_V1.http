@@ -1,0 +1,6 @@
+@Comp2003_API_V1_HostAddress = http://localhost:5130
+
+GET {{Comp2003_API_V1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
