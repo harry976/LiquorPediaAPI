@@ -9,7 +9,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Comp2003_API_V1/Comp2003_API_V1.csproj", "Comp2003_API_V1/"]
+COPY ["Comp2003_API_V1.csproj", "Comp2003_API_V1/"]
 RUN dotnet restore "./Comp2003_API_V1/./Comp2003_API_V1.csproj"
 COPY . .
 WORKDIR "/src/Comp2003_API_V1"
