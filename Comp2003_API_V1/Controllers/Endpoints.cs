@@ -129,11 +129,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadCocktailDetails")]
-        public async Task<IActionResult> GetCocktailDetails([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetCocktailDetails(int cocktailID)
         {
             try
             {
-                var cocktailDetails = await _context.GetCocktailDetailsContext(items.cocktailID);
+                var cocktailDetails = await _context.GetCocktailDetailsContext(cocktailID);
 
                 if (cocktailDetails != null && cocktailDetails.Any())
                 {
