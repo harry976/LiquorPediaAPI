@@ -10,7 +10,7 @@ namespace Comp2003_API_V1.Context
     {
         private readonly IConfiguration _configuration;
 
-        public ContextFile(IConfiguration configuration)
+        public ContextFile(DbContextOptions options, IConfiguration configuration) : base(options)
         {
             _configuration = configuration;
         }
@@ -40,12 +40,10 @@ namespace Comp2003_API_V1.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseMySql(
-                    _configuration.GetConnectionString("MyConnection"),
-                    new MySqlServerVersion(new Version(8, 0, 0)));
-            }
+            optionsBuilder.UseMySql(
+                Environment.GetEnvironmentVariable(
+                    _configuration.GetValue<string>("EnvKeys:DbUserConn")),
+                new MySqlServerVersion(new Version(8, 0, 0)));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
