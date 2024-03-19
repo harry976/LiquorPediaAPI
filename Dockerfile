@@ -5,6 +5,8 @@ COPY ./Comp2003_API_V1/Comp2003_API_V1.csproj ./Comp2003_API_V1/Comp2003_API_V1.
 COPY *.sln .
 RUN dotnet restore
 
+RUN dotnet tool install --global dotnet-ef
+
 # Copy everything else and build
 COPY . ./
 RUN dotnet publish -c Release -o build --no-restore
