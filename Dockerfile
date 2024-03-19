@@ -5,14 +5,11 @@ COPY ./Comp2003_API_V1/Comp2003_API_V1.csproj ./Comp2003_API_V1/Comp2003_API_V1.
 COPY *.sln .
 RUN dotnet restore
 
-RUN dotnet tool install --global dotnet-ef
 
 # Copy everything else and build
 COPY . ./
 RUN dotnet publish -c Release -o build --no-restore
 
-ARG MIGRATION_CONNECTION
-RUN dotnet ef database update --connection $MIGRATION_CONNECTION
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
