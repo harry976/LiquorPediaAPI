@@ -129,7 +129,7 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadCocktailDetails")]
-        public async Task<IActionResult> GetCocktailDetails(int cocktailID)
+        public async Task<IActionResult> GetCocktailDetails(int cocktailID) // changed back to swagger to bug fix
         {
             try
             {
