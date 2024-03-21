@@ -18,11 +18,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadVideo")]
-        public async Task<IActionResult> GetVideo([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetVideo(int cocktailID)
         {
             try
             {
-                var result = await _context.GetVideoContext(items.cocktailID);
+                var result = await _context.GetVideoContext(cocktailID);
 
                 if (result != null && result.Any())
                 {
@@ -42,11 +42,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadCocktailsByIngredient")]
-        public async Task<IActionResult> GetCocktailsForIngredient([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetCocktailsForIngredient(string ingredientName)
         {
             try
             {
-                var result = await _context.GetCocktailsByIngredientContext(items.ingredientName);
+                var result = await _context.GetCocktailsByIngredientContext(ingredientName);
                 var cocktailDetailsList = new List<ReadCocktailDetails>();
 
                 foreach (var cocktailDetail in result)
@@ -74,11 +74,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadCocktailByName")]
-        public async Task<IActionResult> GetCocktailByName([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetCocktailByName(string cocktailName)
         {
             try
             {
-                var result = await _context.GetCocktailByNameContext(items.cocktailName);
+                var result = await _context.GetCocktailByNameContext(cocktailName);
                 var cocktailDetailsList = new List<ReadCocktailDetails>();
 
                 foreach (var cocktailDetail in result)
@@ -105,11 +105,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadArticles")]
-        public async Task<IActionResult> GetArticle([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetArticle(int cocktailID)
         {
             try
             {
-                var result = await _context.GetArticleContext(items.cocktailID);
+                var result = await _context.GetArticleContext(cocktailID);
 
                 if (result != null && result.Any())
                 {
@@ -153,11 +153,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadCocktailTags")]
-        public async Task<IActionResult> GetCocktailTags([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetCocktailTags(int cocktailID)
         {
             try
             {
-                var result = await _context.ReadCocktailTagsContext(items.cocktailID);
+                var result = await _context.ReadCocktailTagsContext(cocktailID);
 
                 if (result != null && result.Any())
                 {
@@ -175,11 +175,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadIngredientsForCocktail")]
-        public async Task<IActionResult> GetIngredientsForCocktail([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetIngredientsForCocktail(int cocktailID)
         {
             try
             {
-                var result = await _context.ReadIngredientsForCocktailContext(items.cocktailID);
+                var result = await _context.ReadIngredientsForCocktailContext(cocktailID);
 
                 if (result != null && result.Any())
                 {
@@ -197,11 +197,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadCocktailsForTag")]
-        public async Task<IActionResult> GetCocktailsForTag([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetCocktailsForTag(string tagName)
         {
             try
             {
-                var result = await _context.ReadCocktailsForTagContext(items.tagName);
+                var result = await _context.ReadCocktailsForTagContext(tagName);
                 var cocktailDetailsList = new List<ReadCocktailDetails>();
 
                 foreach (var cocktailDetail in result)
@@ -226,11 +226,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadUserFavourites")]
-        public async Task<IActionResult> GetUserFavourites([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetUserFavourites(string currentEmail)
         {
             try
             {
-                var result = await _context.ReadUserFavouritesContext(items.currentEmail);
+                var result = await _context.ReadUserFavouritesContext(currentEmail);
 
                 if (result != null && result.Any())
                 {
@@ -248,11 +248,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpGet("ReadUserFlags")]
-        public async Task<IActionResult> GetUserFlags([FromBody] PostmanItems items)
+        public async Task<IActionResult> GetUserFlags(string currentEmail)
         {
             try
             {
-                var result = await _context.ReadUserFlagsContext(items.currentEmail);
+                var result = await _context.ReadUserFlagsContext(currentEmail);
 
                 if (result != null && result.Any())
                 {

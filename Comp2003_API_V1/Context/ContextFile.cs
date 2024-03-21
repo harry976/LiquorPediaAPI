@@ -41,9 +41,8 @@ namespace Comp2003_API_V1.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(
-                Environment.GetEnvironmentVariable(
-                    _configuration.GetValue<string>("EnvKeys:DbUserConn")),
-                new MySqlServerVersion(new Version(8, 0, 0)));
+             _configuration.GetConnectionString("MyConnection"),
+             new MySqlServerVersion(new Version(8, 0, 0)));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
