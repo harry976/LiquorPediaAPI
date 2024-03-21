@@ -284,11 +284,11 @@ namespace Comp2003_API_V1.Controllers
         }
 
         [HttpDelete("cocktails/DeleteFavouriteCocktail/")]
-        public async Task<IActionResult> DeleteFavouriteCocktail([FromBody] PostmanItems items)
+        public async Task<IActionResult> DeleteFavouriteCocktail(int cocktailID, string currentEmail)
         {
             try
             {
-                await _context.DeleteFavouriteCocktailContext(items.cocktailID, items.currentEmail);
+                await _context.DeleteFavouriteCocktailContext(cocktailID, currentEmail);
 
                 return Ok();
 
