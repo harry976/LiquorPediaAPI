@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Comp2003_API_V1.Controllers
 {
     [ApiController]
-    [Route("V2/[controller]")]
+    [Route("V3/[controller]")]
     public class Endpoints : ControllerBase
     {
         private readonly ContextFile _context;
@@ -289,6 +289,22 @@ namespace Comp2003_API_V1.Controllers
             try
             {
                 await _context.DeleteFavouriteCocktailContext(cocktailID, currentEmail);
+
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpDelete("cocktails/DeleteUserFlags/")]
+        public async Task<IActionResult> DeleteUserFlags(string currentEmail)
+        {
+            try
+            {
+                await _context.DeleteUserFlagsContext(currentEmail);
 
                 return Ok();
 

@@ -248,5 +248,11 @@ namespace Comp2003_API_V1.Context
             await
                 Database.ExecuteSqlRawAsync("CALL lqp.DeleteFavouriteCocktail(@p0,@p1)", CocktailID, Email);
         }
+
+        public async Task DeleteUserFlagsContext(string? Email)
+        {
+            await
+                Database.ExecuteSqlRawAsync("CALL lqp.DeleteUserFlags(@p0)", Email);
+        }
     }
 }
