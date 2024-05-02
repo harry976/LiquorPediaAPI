@@ -8,6 +8,7 @@ namespace Comp2003_API_V1.Models.CRUD.Read
         [Required]
         [MaxLength (254)]
         public string Email { get; set; }
+        public int CocktailID { get; set; }
         [Required]
         [MaxLength(30)]
         public string CocktailName { get; set; }
