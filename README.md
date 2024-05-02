@@ -44,7 +44,7 @@ GET REQUESTS:
 
 "ReadCocktailsForTag": will return all cocktails that are linked to a tag. Takes "string tagName" as a parameter
 
-"ReadUserFavourites": will return all cocktail IDs linked to a user account. Takes "string currentEmail" as a parameter
+"ReadUserFavourites": will return all cocktail IDs, cocktail name, cocktail picture and units linked to a user account. Takes "string currentEmail" as a parameter
 
 "ReadUserFlags": will return all flags (notification and age) linked to a user account. Takes "string currentEmail" as a parameter
 
