@@ -2,7 +2,7 @@
 
 This API is written using C# and ASP.NET Core 8.0. This repository contains the source code for the API, including the models, context and endpoints files.
 
-The API is deployed using google cloud run via the link made by google cloud build to this repository. A push to this repository will trigger a build onto google cloud run and the updated API will be deployed and any changes made will take affect.
+The API is deployed using google cloud run via the link made by google cloud build to this repository. A push to this repository will trigger a build onto google cloud run and the updated API will be deployed and any change made will take affect.
 
 the swagger page for the endpoints can be accessed via:
 
