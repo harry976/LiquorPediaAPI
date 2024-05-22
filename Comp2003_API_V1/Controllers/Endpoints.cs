@@ -151,6 +151,29 @@ namespace Comp2003_API_V1.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+        [HttpGet("ReadAllCocktailDetails")]
+        public async Task<IActionResult> GetAllCocktailDetails() // changed back to swagger to bug fix
+        {
+            try
+            {
+                var cocktailDetails = await _context.GetAllCocktailDetailsContext();
+
+                if (cocktailDetails != null && cocktailDetails.Any())
+                {
+
+                    return Ok(cocktailDetails);
+                }
+                else
+                {
+                    return NotFound("No cocktails exist");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
 
         [HttpGet("ReadCocktailTags")]
         public async Task<IActionResult> GetCocktailTags(int cocktailID)
