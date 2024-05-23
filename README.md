@@ -38,6 +38,8 @@ GET REQUESTS:
 
 "ReadCocktailDetails": will return a cocktail linked to a cocktail ID. Takes "int cocktailID" as a parameter
 
+"ReadAllCocktailDetails": will return all cocktails in the database.
+
 "ReadCocktailTags": will return all tags linked to a cocktail. Takes "int cocktailID" as a parameter
 
 "ReadIngredientsForCocktail": will return all ingredients linked to a cocktail. Takes "int cocktailID" as a parameter
