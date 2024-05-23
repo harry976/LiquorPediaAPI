@@ -147,7 +147,6 @@ namespace Comp2003_API_V1.Context
 
             modelBuilder.Entity<ReadCocktailDetails>()
                 .HasNoKey();
-
             modelBuilder.Entity<ReadArticle>()
                 .HasNoKey();
 
@@ -197,6 +196,11 @@ namespace Comp2003_API_V1.Context
             return await ReadCocktailDetails
                 .FromSqlRaw("CALL lqp.ReadCocktailDetails(@p0)", cocktailID)
                 .ToListAsync();
+        }
+        public async Task<IEnumerable<ReadCocktailDetails>> GetAllCocktailDetailsContext()
+        {
+            return await ReadCocktailDetails
+                .FromSqlRaw("CALL lqp.ReadAllCocktailDetails").ToListAsync();
         }
         public async Task<IEnumerable<ReadArticle>> GetArticleContext(int? cocktailID)
         {

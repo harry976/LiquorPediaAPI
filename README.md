@@ -2,7 +2,7 @@
 
 This API is written using C# and ASP.NET Core 8.0. This repository contains the source code for the API, including the models, context and endpoints files.
 
-The API is deployed using google cloud run via the link made by google cloud build to this repository. A push to this repository will trigger a build onto google cloud run and the updated API will be deployed and any changes made will take affect.
+The API is deployed using google cloud run via the link made by google cloud build to this repository. A push to this repository will trigger a build onto google cloud run and the updated API will be deployed and any change made will take affect.
 
 the swagger page for the endpoints can be accessed via:
 
@@ -37,6 +37,8 @@ GET REQUESTS:
 "ReadArticles": will return any articles linked to a cocktail. Takes "int cocktailID" as a parameter
 
 "ReadCocktailDetails": will return a cocktail linked to a cocktail ID. Takes "int cocktailID" as a parameter
+
+"ReadAllCocktailDetails": will return all cocktail details in the database.
 
 "ReadCocktailTags": will return all tags linked to a cocktail. Takes "int cocktailID" as a parameter
 
