@@ -1,9 +1,14 @@
+triggers:
+  - kind: apipushtrigger  # Keep the trigger type
+    branch: master  # Keep the branch name (assuming "master" is correct)
+    repo: harry976/LiquorPediaAPI  # Keep the repository details
+    substitutions:
+      _FORCE_BUILD_CACHE_CLEANUP: "true"  # Add this line for cache invalidation
+
 steps:
   - name: gcr.io/cloud-builders/docker
     args:
       - build
-      - '-t'
-      - ''
       - .
   - name: gcr.io/cloud-builders/docker
     args:
